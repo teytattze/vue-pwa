@@ -36,7 +36,7 @@
 				</div>
 
 				<button :disabled="isDisabled" v-on:click="addToCart">
-					Add to cart
+					{{ buttonText }}
 				</button>
 			</main>
 		</div>
@@ -64,6 +64,9 @@
 				computed: {
 					isDisabled: function () {
 						return this.product.quantity === 0;
+					},
+					buttonText: function () {
+						return this.product.quantity === 0 ? 'Sold Out' : 'Add to Cart';
 					},
 				},
 			});
